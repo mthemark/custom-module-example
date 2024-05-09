@@ -1,10 +1,8 @@
 {
   "Resources": {
     "NoComponents": true,
-    "CoreServicesDlls": [
-      "./obj/CustomModule.dll"
-    ],
-	"ReferenceDlls":[],
+    "CoreServicesDlls": [],
+    "ReferenceDlls": [],
     "CliDlls": "",
     "WebPages": "",
     "InstallScript": "",
@@ -13,6 +11,6 @@
     "MvcScripts": [],
     "MvcStyles": []
   },
-  "Version": "1.0.0",
-  "Description": "This is an example of a Custom Module"
+  "Version": "0.0",
+  "Description": ""
 }

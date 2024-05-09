@@ -1,0 +1,16 @@
+{
+  "Resources": {
+    "NoComponents": true,
+    "CoreServicesDlls": [],
+    "ReferenceDlls": [],
+    "CliDlls": "",
+    "WebPages": "",
+    "InstallScript": "",
+    "SqlScripts": "",
+    "MsSqlScript": "",
+    "MvcScripts": [],
+    "MvcStyles": []
+  },
+  "Version": "0.0",
+  "Description": ""
+}

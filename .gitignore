@@ -1,5 +1,5 @@
-﻿/.idea/*
-/obj/*
-/bin/*
-/CustomModule.zip
-/Module.Modified.xml
+﻿/.vs
+/**/obj/*
+/**/bin/*
+/**/publish
+/**/modules
