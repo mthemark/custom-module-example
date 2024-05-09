@@ -1,6 +1,5 @@
 ﻿/.vs
-/.idea/*
-/obj/*
-/bin/*
-/publish
-/modules
+/**/obj/*
+/**/bin/*
+/**/publish
+/**/modules

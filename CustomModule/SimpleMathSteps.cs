@@ -6,7 +6,7 @@ namespace CustomModule;
 //Use this decorator so that any public method in this class is registered as a step.
 //The 2 string arguments make up a list (as many as you need) of categories, so this 
 //step will appear under: Custom Module Example -> Simple Math
-[AutoRegisterMethodsOnClass(true, "Custom Modulev" + IDecisionsModule.Version, "Simple Math")]
+[AutoRegisterMethodsOnClass(true, "Custom Module" + "v" + IDecisionsModule.Version, "Simple Math")]
 public class SimpleMathSteps : DecisionsModule
 {
     //A simple method that performs a calculation and returns a boolean result.
