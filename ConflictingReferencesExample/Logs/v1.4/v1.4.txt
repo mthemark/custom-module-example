@@ -1,0 +1,6 @@
+﻿
+"ConflictingReferencesExample - System.ServiceModel.Http, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a[]",
+"ConflictingReferencesExample - System.ServiceModel.Primitives, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a[]",
+
+"DecisionsFramework - System.ServiceModel.Http, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a[]",
+"DecisionsFramework - System.ServiceModel.Primitives, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a[]"

@@ -7,7 +7,7 @@ public interface IDecisionsModule
     /// <summary>
     /// Replaced at build time to version 
     /// </summary>
-    public const string Version = "1.3";
+    public const string Version = "1.4";
     [AutoRegisterMethod("GetVersionedName")]
     string GetAssemblyFullName();
 }

@@ -4,7 +4,7 @@
 #dotnet tool update --global CreateDecisionsModule-GlobalTool
 #
 #set variables and update version const in module interface
-$version = "1.3"
+$version = "1.4"
 $projectName = "ConflictingReferencesExample"
 #
 $publishPath = '.\publish'
@@ -16,7 +16,10 @@ $idm = ($idm -replace 'public const string Version = "\d+.\d+";', "public const 
 Set-Content "$moduleInterfacePath" -Value $idm
 #
 #clean publish versioned module
-Remove-Item ./publish -Force
+If(Test-Path -Path "$publishPath")
+{
+    Remove-Item "$publishPath" -Force -Recurse
+}
 dotnet publish .\$projectName.csproj /p:Version=$version -f net7.0 --runtime win-x64 --self-contained false --output "$publishPath" -c Debug
 #
 #create modules and CreateDecisionsModule config file
