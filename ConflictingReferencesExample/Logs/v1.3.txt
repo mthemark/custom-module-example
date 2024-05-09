@@ -1,0 +1,25 @@
+﻿
+#
+#Runtime Error when executing GetAssemblyFullName method on module.
+#
+
+Name: Error running step GetAssemblyFullName 1[GetAssemblyFullName] in flow [ConflictingReferencesExamplev1.3]: Exception invoking method GetAssemblyFullName on class ExampleModule
+                Exception Message: Error running step GetAssemblyFullName 1[GetAssemblyFullName] in flow [ConflictingReferencesExamplev1.3]: Exception invoking method GetAssemblyFullName on class ExampleModule                
+
+                Input Values: -- No Data --
+                
+                Exception Stack Trace: DecisionsFramework.Design.Flow.ErrorRunningFlowStep: Error running step GetAssemblyFullName 1[GetAssemblyFullName] in flow [ConflictingReferencesExamplev1.3]: Exception invoking method GetAssemblyFullName on class ExampleModule
+ ---> DecisionsFramework.LoggedException: Exception invoking method GetAssemblyFullName on class ExampleModule
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'System.ServiceModel.Http, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.ServiceModel.Http, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at ServiceReference.CalculatorSoapClient.GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
+   at ServiceReference.CalculatorSoapClient..ctor(EndpointConfiguration endpointConfiguration)
+   at ConflictingReferencesExample.ExampleModule..ctor(EndpointConfiguration endpointConfiguration)
+   at ConflictingReferencesExample.ExampleModule..ctor()
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)
+   --- End of inner exception stack trace ---
+   at DecisionsFramework.Design.Flow.StepImplementations.InvokeMethodStep.Run(StepStartData data)
+   at DecisionsFramework.Design.Flow.FlowStep.RunStepInternal(String flowTrackingID, String stepTrackingID, KeyValuePairDataStructure[] stepRunDataValues, AbstractFlowTrackingData trackingData)
+   at DecisionsFramework.Design.Flow.FlowStep.Start(String flowTrackingID, String stepTrackingID, FlowStateData data, AbstractFlowTrackingData trackingData, RunningStepData currentStepData)
+   --- End of inner exception stack trace ---                
+                
