@@ -1,23 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>     
-    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
-    <LangVersion>9.0</LangVersion>
-	<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>None</DebugType>
-  </PropertyGroup>
-  <PropertyGroup>    
-    <OutputType>Library</OutputType>
-    <RootNamespace>CustomModule</RootNamespace>
-    <AssemblyName>$(RootNamespace)</AssemblyName>
-    <RootPath>../</RootPath>  
-    <BuildDest>$(RootPath)obj</BuildDest>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="DecisionsSDK" Version="8.9.2" />
-  </ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Version>$(VersionPrefix)</Version>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DecisionsSDK" Version="8.16.0" />
+    </ItemGroup>
 </Project>

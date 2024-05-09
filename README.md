@@ -1,2 +1,2 @@
-# custom-module-example
-Repository containing custom module example.
+# versioned custom module
+versioned custom module example.
