@@ -4,7 +4,7 @@
 #dotnet tool update --global CreateDecisionsModule-GlobalTool
 #
 #set variables and update version const in module interface
-$version = "1.5"
+$version = "1.6"
 $projectName = "ConflictingReferencesExample"
 #
 $publishPath = '.\publish'

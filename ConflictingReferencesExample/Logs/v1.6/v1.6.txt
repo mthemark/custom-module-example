@@ -1,0 +1,41 @@
+#
+# Import Error from Decisions Studio:Administration>Feature>UPLOAD AND INSTALL MODULE
+#
+
+DecisionsFramework.LoggedException: 
+
+Cannot start because of a conflicting dll: C:\Program Files\Decisions\Decisions Server\Modules\ConflictingReferencesExamplev1.6\ReferenceDlls\System.ServiceModel.Http.dll
+
+at DecisionsFramework.Utilities.Service.AssemblyParser.LoadFile(String assemblyPath, Boolean shadowLoad)
+at DecisionsServiceHost.Modules.ModuleImporter.InstallServicesFromDirectory(String path, String moduleName, Boolean onlyIfNewer, Boolean runInitializable)
+at DecisionsServiceHost.Modules.ModuleImporter.ImportModuleFromDirectory(String path, String moduleName, Boolean duringInitialization)
+at DecisionsServiceHost.Modules.ModuleImporter.SyncModule(String moduleName, Boolean duringSHMInitialization, Boolean notifyCluster)
+at DecisionsFramework.Utilities.Modules.ModuleInstallationHelper.InstallModule(AbstractUserContext userContext, String entityID, String ModuleName, Boolean notifyCluster)
+at DecisionsFramework.ServiceLayer.Services.Modules.ModuleInstallationService.InstallModule(AbstractUserContext context, String moduleName)
+at DecisionsFramework.ServiceLayer.Services.Module.AddCustomModule.UploadAndInstallModule()
+at DecisionsFramework.ServiceLayer.Services.Modules.ModulesFolderBehavior.<>c.b__5_1(AbstractUserContext userContext, Object obj)
+at DecisionsFramework.ServiceLayer.Actions.Common.EditObjectAction.SetValue(AbstractUserContext userContext, Object value)
+at DecisionsFramework.ServiceLayer.Actions.Common.EditObjectAction.OnContextEditCompleted(IContextProvider sender, ContextProviderEditCompleteEventArgs args)
+at DecisionsFramework.Design.Properties.GeneratorBasedContextProvider.OnAfterEditComplete(EditCompleteType completeType)
+at DecisionsFramework.Design.Properties.ReflectionContextProvider.OnAfterEditComplete(EditCompleteType completeType)
+at DecisionsFramework.Design.Properties.GeneratorBasedContextProvider.EditComplete(EditCompleteType completeType)
+at DecisionsFramework.Design.Properties.ContextProviderService.EditComplete(AbstractUserContext userContext, String contextProviderRegistrationId, EditCompleteType completeType)
+at InvokeStub_IContextProviderService.EditComplete(Object, Span`1)
+at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+
+--- End of stack trace from previous location --- 
+at DecisionsDotNet.Middlewares.ApiMiddleware.ExecuteMethod(HttpContext context)
+at DecisionsDotNet.Middlewares.ApiMiddleware.Invoke(HttpContext context)
+at DecisionsDotNet.Middlewares.ApiMiddleware.Invoke(HttpContext context)
+at Decisions.Web.Core.Middlewares.RegisterUserContext.Invoke(HttpContext context, ContextHolder contextHolder)
+at Decisions.Web.Core.Middlewares.SetUserContext.Invoke(HttpContext context)
+at DecisionsDotNetCore.Middlewares.AuthenticateByParametersMiddleware.Invoke(HttpContext context, AccountService accountService, AccountUtilities accountUtilities, AssignmentService assignmentService, FolderService folderService)
+at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+at Decisions.Web.Core.Middlewares.OpenApiMiddleware.Invoke(HttpContext context)
+at Decisions.Web.Core.Middlewares.UpdateHeadersMiddleware.Invoke(HttpContext context)
+at Decisions.Web.Core.Middlewares.HandleMissingStaticFiles.Invoke(HttpContext context)
+at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
