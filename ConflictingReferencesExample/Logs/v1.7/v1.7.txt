@@ -1,0 +1,7 @@
+#
+# This version works but has issues below...
+#
+# System.ServiceModel.Http v4.9.0 has a transitive package reference to System.Drawing.Common v5.0.0 that has CVE-2021-24112 ".NET Core Remote Code Execution Vulnerability"
+# This package has been deprecated as it is legacy and no longer maintained.
+# https://github.com/advisories/GHSA-rxg9-xrhp-64gj
+#

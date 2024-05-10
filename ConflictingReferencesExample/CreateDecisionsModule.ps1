@@ -4,7 +4,7 @@
 #dotnet tool update --global CreateDecisionsModule-GlobalTool
 #
 #set variables and update version const in module interface
-$version = "1.6"
+$version = "1.7"
 $projectName = "ConflictingReferencesExample"
 #
 $publishPath = '.\publish'
@@ -31,7 +31,7 @@ $config = Get-Content -Raw CreateDecisionsModule.json | ConvertFrom-Json
 $config.Resources.CoreServicesDlls = @("$publishPath\$projectName.dll")
 $config.Version = $version
 $config.Description = $moduleName
-$config.Resources.ReferenceDlls = @("$publishPath\System.ServiceModel.Http.dll")
+#$config.Resources.ReferenceDlls = @("$publishPath\System.ServiceModel.Http.dll")
 $json = ConvertTo-Json $config
 Set-Content -Path "$modulesPath\$moduleName.json" -Value $json
 #
