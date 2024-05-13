@@ -22,6 +22,25 @@ namespace ConflictingReferencesExampleTests
         [Theory]
         [InlineData(EndpointConfiguration.CalculatorSoap)]
         [InlineData(EndpointConfiguration.CalculatorSoap12)]
+        public void GetConflictingReferenceProductVersions(EndpointConfiguration endpointConfiguration)
+        {
+            //Arrange
+            ExampleModule exampleModule = new(endpointConfiguration);
+            //Act
+            var result = exampleModule.GetConflictingReferenceProductVersions();
+            //Assert
+            //result.Should().Contain("System.Security.Cryptography.Pkcs.dll6.0.5+70ae3df4a6f3c92fb6b315afc405edd10ff38579");//6.0.1
+            result.Should().Contain("System.Drawing.Common.dll 6.0.0+4822e3c3aa77eb82b2fb33c9321f923cf11ddde6");//System.Drawing.Common.dll6.0.0+4822e3c3aa77eb82b2fb33c9321f923cf11ddde6 6.0.0
+            result.Should().Contain("System.Security.Cryptography.Pkcs.dll 8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14");//System.Security.Cryptography.Pkcs.dll 8.0.0
+            //result.Should().Contain("System.Security.Cryptography.Pkcs.dll6.0.19+e37fab9fc9f7bce120a7165491ed392a73f8ab51");//System.Security.Cryptography.Pkcs.dll 6.0.4
+            result.Should().Contain("System.Security.Cryptography.Xml.dll 8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14");//System.Security.Cryptography.Xml.dll 8.0.0
+            //result.Should().Contain("System.Security.Cryptography.Xml.dll6.0.8+55fb7ef977e7d120dc12f0960edcff0739d7ee0e");//System.Security.Cryptography.Xml.dll 6.0.1
+            result.Should().Contain("System.Private.ServiceModel.dll 3.3.0");//System.Private.ServiceModel.dll 4.9.0
+        }
+
+        [Theory]
+        [InlineData(EndpointConfiguration.CalculatorSoap)]
+        [InlineData(EndpointConfiguration.CalculatorSoap12)]
         public void AddTest(EndpointConfiguration endpointConfiguration)
         {
             //Arrange

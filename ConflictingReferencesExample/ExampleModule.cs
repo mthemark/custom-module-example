@@ -1,6 +1,7 @@
 ﻿using ConflictingReferencesExample.Models;
 using ConflictingReferencesExample.Services;
 using DecisionsFramework.Design.Flow;
+using System.Diagnostics;
 
 namespace ConflictingReferencesExample;
 
@@ -15,6 +16,18 @@ public class ExampleModule : DecisionsModule
         calcService = new CalcService(new ServiceReference.CalculatorSoapClient(endpointConfiguration));
     }
     public override string GetAssemblyFullName() => typeof(DecisionsModule).Assembly.FullName!;
+    public string GetConflictingReferenceProductVersions()
+    {
+        var list = new List<FileVersionInfo>
+        {
+            FileVersionInfo.GetVersionInfo(typeof(System.Drawing.Bitmap).Assembly.Location),
+            FileVersionInfo.GetVersionInfo(typeof(System.Security.Cryptography.PbeParameters).Assembly.Location),
+            FileVersionInfo.GetVersionInfo(typeof(System.Security.Cryptography.Xml.DataObject).Assembly.Location),
+            FileVersionInfo.GetVersionInfo(typeof(System.ServiceModel.BasicHttpBinding).Assembly.Location),
+        };
+        return list.Select(a => $"{a.InternalName} {a.ProductVersion} {a.FileVersion}").Aggregate((a,b)=>$"{a}\r\n{b}");
+    }
+
     public int Add(int x, int y) => AddAsync(x, y).Result;
     public async Task<int> AddAsync(int x, int y) => await calcService!.AddAsync(x, y);
     public int Divide(int x, int y) => DivideAsync(x, y).Result;

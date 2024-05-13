@@ -1,0 +1,29 @@
+#It seems that decisions DecisionsSDK 8.16.0 references version 4.9.0.0 of System.ServiceModel.Http.dll that is included as a reference on the custom module also,
+# downgrading to the 4.9 version allows the module to run 
+# but that version has  CVE-2021-24112 ".NET Core Remote Code Execution Vulnerability" on System.Drawing.Common 5.0.0(https://github.com/advisories/GHSA-rxg9-xrhp-64gj)
+# and CVE-2022-34716 ".NET Information Disclosure Vulnerability" on System.Security.Cryptography.Xml 5.0.0 (https://github.com/advisories/GHSA-vh55-786g-wjwj)
+#
+#If I upgrading the System.ServiceModel.Http to any other version I get this following error...
+#Cannot start because of a conflicting dll: C:\Program Files\Decisions\Decisions Server\Modules\ConflictingReferencesExamplev1.8\ReferenceDlls\System.ServiceModel.Http.dll
+#
+# After upgrading the transitive packages as follows
+#  System.Drawing.Common --> 6.0.0
+#  System.Security.Cryptography.Xml --> 8.0.0
+# 
+# then I get another CVE
+# System.Security.Cryptography.Pkcs 5.0.0 has CVE-2023-29331 ".NET Denial of Service vulnerability" (https://github.com/advisories/GHSA-555c-2p6r-68mm)
+# If I upgrade this transitive package to 8.0.0
+# 
+# then the following are used by the custom module
+# 
+# System.Drawing.Common.dll (6.0.0) 6.0.0+4822e3c3aa77eb82b2fb33c9321f923cf11ddde6 6.0.21.52210
+# System.Security.Cryptography.Pkcs.dll (8.0.0) 8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14 8.0.23.53103
+# System.Security.Cryptography.Xml.dll (8.0.0) 8.0.0+5535e31a712343a63f5d7d796cd874e563e5ac14 8.0.23.53103
+# System.Private.ServiceModel.dll (4.9.0) 3.3.0 4.900.21.52002
+#
+
+This fixes the CVE issues with using the old System.ServiceModel.Http.dll 4.9.0 locally.
+
+Suggestions for decisions SDK developers.
+It would be good if the DecisionsSDK package included the transitive packages it uses.
+Also upgrading the System.ServiceModel related packages to newer non-CVE affected versions i.e. 6.2.0 (DecisionsSDK 8.16.0) / 8.0.0 (DecisionsSDK 8.17.0+).
